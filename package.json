@@ -1,0 +1,79 @@
+{
+  "name": "@common-grants/cg-omb",
+  "description": "A CommonGrants plugin for the OMB grants data standards (NOFO Information Collection)",
+  "version": "0.0.0",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/common-grants/ts-plugin-omb.git"
+  },
+  "homepage": "https://github.com/common-grants/ts-plugin-omb#readme",
+  "bugs": {
+    "url": "https://github.com/common-grants/ts-plugin-omb/issues"
+  },
+  "keywords": [
+    "common-grants",
+    "omb",
+    "nofo",
+    "plugin",
+    "typescript",
+    "grants",
+    "opportunities"
+  ],
+  "packageManager": "pnpm@10.34.3",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "schemas",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --fix",
+    "check:lint": "eslint .",
+    "format": "prettier --write .",
+    "check:format": "prettier --check .",
+    "check:types": "tsc --noEmit",
+    "checks": "pnpm run check:lint && pnpm run check:format && pnpm run check:types",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "ci": "pnpm run checks && pnpm run build && pnpm run test && pnpm audit",
+    "gen:crosswalk": "pnpm dlx tsx scripts/extract-workbook.ts",
+    "gen:jsonschema": "pnpm dlx tsx scripts/gen-jsonschema.ts",
+    "example:parse": "pnpm dlx tsx examples/parse-nofo-ic.ts"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "@common-grants/sdk": "^0.5.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "zod": "3.25.76"
+    }
+  },
+  "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": "^11.9.3",
+    "@common-grants/sdk": "^0.5.0",
+    "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "^4.1.9",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "eslint": "^10.5.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "json-schema-faker": "^0.6.2",
+    "prettier": "^3.8.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.58.0",
+    "vitest": "^4.1.9",
+    "zod": "^3.25.0"
+  }
+}

@@ -1,0 +1,49 @@
+name: "CD - Publish to npm"
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: "Git tag to publish (e.g., v0.1.0)"
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Git tag to publish (e.g., v0.1.0)"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: npm
+      url: https://www.npmjs.com/package/@common-grants/cg-omb
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag }}
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      # Builds the package
+      # TODO: Change this back to pnpm run ci after initial release
+      - run: pnpm run build
+
+      - name: Publish
+        env:
+          # TODO: Replace with trusted publishers after initial release
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --provenance --access public --no-git-checks

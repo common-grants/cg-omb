@@ -1,0 +1,7 @@
+.github/
+CHANGELOG.md
+pnpm-lock.yaml
+
+# Vendored upstream OMB SDE JSON Schemas — kept verbatim, never reformatted
+json-schemas/
+schemas/sde/
