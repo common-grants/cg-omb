@@ -14,6 +14,9 @@ importers:
       '@apidevtools/json-schema-ref-parser':
         specifier: ^11.9.3
         version: 11.9.3
+      '@common-grants/cg-grants-gov':
+        specifier: ^0.2.0
+        version: 0.2.0(@common-grants/sdk@0.5.0)
       '@common-grants/sdk':
         specifier: ^0.5.0
         version: 0.5.0
@@ -89,6 +92,11 @@ packages:
   '@bcoe/v8-coverage@1.0.2':
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
+
+  '@common-grants/cg-grants-gov@0.2.0':
+    resolution: {integrity: sha512-BOMJ1PqKJdZm6M41Nsreou3SxKJ17R4owGP7HlrUc07NIVvM3Z7ZAVqtHIph8ruFp0oeRDY6hS0WbdYgV8fDrw==}
+    peerDependencies:
+      '@common-grants/sdk': ^0.5.0
 
   '@common-grants/sdk@0.5.0':
     resolution: {integrity: sha512-91/MsRcnoWBfPnw44r8qRWHMohNswJ0HWWnJ/luMosXT4XEcvp7ddchPEZkxfghB51HV6DThoOGRpk1b4JGiog==}
@@ -1212,6 +1220,10 @@ snapshots:
       '@babel/helper-validator-identifier': 7.29.7
 
   '@bcoe/v8-coverage@1.0.2': {}
+
+  '@common-grants/cg-grants-gov@0.2.0(@common-grants/sdk@0.5.0)':
+    dependencies:
+      '@common-grants/sdk': 0.5.0
 
   '@common-grants/sdk@0.5.0':
     dependencies:
