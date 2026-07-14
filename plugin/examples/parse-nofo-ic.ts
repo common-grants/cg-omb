@@ -63,7 +63,7 @@ function main() {
   const { result: nofoBack } = opportunitySchema.fromCommon(opportunity);
   console.log(`FON:            ${nofoBack.fundingOpportunity.fundingOpportunityNumber}`);
   console.log(`Anticipated $:  ${nofoBack.fundingOpportunity.anticipatedAmount}`);
-  console.log(`Projects:       ${nofoBack.projects.length}`);
+  console.log(`Projects:       ${nofoBack.projects?.length ?? 0}`);
 
   console.log("\n=== Example complete ===");
 }

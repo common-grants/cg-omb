@@ -252,6 +252,8 @@ export function fromCommon(common: any): TransformResult<NofoIc> {
   const statusValue = common.status?.customValue ?? common.status?.value;
   const status = statusValue && statusValue !== "custom" ? statusValue : null;
 
+  const preservedProjects = (cf.projects?.value as NofoIcProject[] | undefined) ?? [];
+
   const result: NofoIc = {
     id: common.id ?? null,
     status,
@@ -275,11 +277,69 @@ export function fromCommon(common: any): TransformResult<NofoIc> {
       fiscalYear: cf.fiscalYear?.value ?? null,
       anticipatedAmount,
     },
-    // Projects were preserved verbatim on the way out.
-    projects: (cf.projects?.value as NofoIcProject[] | undefined) ?? [],
+    // Projects preserved verbatim on the way out are lossless; otherwise (e.g.
+    // the data came from another source system with no OMB projects) synthesize
+    // a first project from the project-scoped CommonGrants fields so they land
+    // somewhere instead of being dropped.
+    projects: preservedProjects.length > 0 ? preservedProjects : synthesizeProjects(common),
   };
 
   return { result, errors };
+}
+
+/** Build a NOFO IC project from the project-scoped CommonGrants fields. */
+function synthesizeProjects(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  common: any
+): NofoIcProject[] {
+  const cf = common.customFields ?? {};
+  const kd = common.keyDates ?? {};
+  const cs = cf.costSharing?.value;
+  const elig = cf.eligibilityCriteria?.value;
+  const poc = cf.contactInfo?.value;
+
+  const applicantTypes: string[] = (common.acceptedApplicantTypes ?? [])
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((at: any) => at.customValue ?? at.value)
+    .filter((v: unknown): v is string => typeof v === "string");
+  const beneficiaryTypes: string[] = (elig?.beneficiaryTypes ?? [])
+    .map((b: { code?: string | null }) => b.code)
+    .filter((v: unknown): v is string => typeof v === "string");
+
+  const project: NofoIcProject = {
+    anticipatedApplicationPeriodStartDate: eventDate(kd.postDate),
+    anticipatedApplicationPeriodEndDate: eventDate(kd.closeDate),
+    anticipatedAwardDate: eventDate(kd.otherDates?.forecastedAwardDate),
+    anticipatedProjectStartDate: eventDate(kd.otherDates?.forecastedProjectStartDate),
+    eligibleApplicantTypes: applicantTypes.length > 0 ? applicantTypes : null,
+    eligibleBeneficiaryTypes: beneficiaryTypes.length > 0 ? beneficiaryTypes : null,
+    otherEligibilityRequirements: elig?.details ?? null,
+    costSharing:
+      cs && (cs.requirementType != null || cs.percentage != null || cs.details != null)
+        ? {
+            formulaCostSharingMoeRequirement: null,
+            requirementType: cs.requirementType ?? null,
+            percentage: cs.percentage != null ? String(cs.percentage) : null,
+            description: cs.details ?? null,
+          }
+        : null,
+    pocRoleType: poc?.description ?? null,
+    pocTitle: poc?.name ?? null,
+    pocEmail: poc?.email ?? null,
+    pocPhone: poc?.phone ?? null,
+  };
+
+  const hasData = Object.values(project).some(
+    v => v != null && !(Array.isArray(v) && v.length === 0)
+  );
+  return hasData ? [project] : [];
+}
+
+/** Extract a date string (YYYY-MM-DD) from a CommonGrants key-date event. */
+function eventDate(event: { date?: unknown } | undefined): string | null {
+  const d = event?.date;
+  if (d == null) return null;
+  return d instanceof Date ? d.toISOString().slice(0, 10) : String(d);
 }
 
 /** Normalize a Date or string to a date/time string (Date coercion is lossy but safe). */

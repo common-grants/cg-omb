@@ -34,7 +34,7 @@
     "check:lint": "eslint .",
     "format": "prettier --write .",
     "check:format": "prettier --check .",
-    "check:types": "tsc --noEmit",
+    "check:types": "tsc --noEmit -p tsconfig.check.json",
     "checks": "pnpm run check:lint && pnpm run check:format && pnpm run check:types",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",

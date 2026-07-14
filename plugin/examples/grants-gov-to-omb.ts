@@ -42,7 +42,7 @@ const grantsGovOpportunity = {
     created_at: "2026-01-01T00:00:00.000000+00:00",
     updated_at: "2026-01-15T00:00:00.000000+00:00",
   },
-  opportunity_status: "posted",
+  opportunity_status: "posted" as const,
   attachments: [],
   created_at: "2026-01-01T00:00:00.000000+00:00",
   updated_at: "2026-01-15T00:00:00.000000+00:00",
@@ -74,7 +74,10 @@ function main() {
 
   // ---- OMB → CommonGrants → Grants.gov (the other direction) ---------------
   const backToCommon = omb.toCommon(toOmb.result);
-  const backToGrantsGov = grantsGov.fromCommon(backToCommon.result);
+  // Each plugin types its own CommonGrants customFields, so the interchange
+  // value is cast at the hand-off between plugins (structurally compatible).
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const backToGrantsGov = grantsGov.fromCommon(backToCommon.result as any);
   heading("4. Round the other way: OMB → CommonGrants → Grants.gov");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const gg = backToGrantsGov.result as any;
@@ -89,15 +92,19 @@ function main() {
   heading("What transfers vs. what is source-specific");
   console.log(
     [
-      "Transfers via CommonGrants core/custom fields:",
-      "  • title, description, status, funding amounts, key dates",
-      "  • agency (code + parent), federal opportunity number, assistance listings",
+      "Funding-opportunity level (from CommonGrants core + custom fields):",
+      "  • title, description, status, funding amount, agency (code + parent),",
+      "    federal opportunity number, assistance listings",
       "",
-      "Does not transfer (no home in the other model):",
-      "  • Grants.gov applicant_types → OMB models eligibility per-project, and a",
-      "    Grants.gov opportunity has no projects, so they land nowhere on the OMB side.",
-      "  • OMB project-level fields (eligibility, cost sharing, POC) — absent here",
-      "    because the source is a flat Grants.gov opportunity.",
+      "Project level (synthesized into the first OMB project, since a Grants.gov",
+      "opportunity has no projects of its own):",
+      "  • application period dates, applicant types, eligibility, cost sharing, POC",
+      "",
+      "Caveats:",
+      '  • Applicant types carry the CommonGrants value (e.g. "government_state"),',
+      "    not an OMB entity-type code, until the applicant-type crosswalk is added.",
+      "  • Grants.gov's is-cost-sharing boolean has no project field, so it does not",
+      "    populate the OMB cost-sharing block.",
     ].join("\n")
   );
 }

@@ -123,6 +123,65 @@ describe("fromCommon(toCommon(x)) round-trip", () => {
   });
 });
 
+describe("fromCommon synthesizes a first project when none are preserved", () => {
+  const common = {
+    id: "abc",
+    title: "T",
+    description: "D",
+    status: { value: "open" },
+    keyDates: {
+      postDate: { date: "2026-01-01" },
+      closeDate: { date: "2026-03-01" },
+    },
+    acceptedApplicantTypes: [
+      { value: "government_state" },
+      { value: "custom", customValue: "X99" },
+    ],
+    customFields: {
+      eligibilityCriteria: {
+        name: "eligibilityCriteria",
+        fieldType: "object",
+        value: { beneficiaryTypes: [{ code: "B01" }], details: "Serve Title I schools." },
+      },
+      contactInfo: {
+        name: "contactInfo",
+        fieldType: "object",
+        value: {
+          name: "Grants Officer",
+          email: "po@nih.gov",
+          phone: "555-0100",
+          description: "PO",
+        },
+      },
+    },
+  };
+  const { result } = fromCommon(common);
+
+  it("builds projects[0] from the project-scoped CommonGrants fields", () => {
+    expect(result.projects).toHaveLength(1);
+    const p = result.projects[0];
+    expect(p.anticipatedApplicationPeriodStartDate).toBe("2026-01-01");
+    expect(p.anticipatedApplicationPeriodEndDate).toBe("2026-03-01");
+    expect(p.eligibleApplicantTypes).toEqual(["government_state", "X99"]);
+    expect(p.eligibleBeneficiaryTypes).toEqual(["B01"]);
+    expect(p.otherEligibilityRequirements).toBe("Serve Title I schools.");
+    expect(p.pocEmail).toBe("po@nih.gov");
+    expect(p.pocRoleType).toBe("PO");
+  });
+
+  it("prefers preserved projects verbatim over synthesis", () => {
+    const withProjects = {
+      ...common,
+      customFields: {
+        ...common.customFields,
+        projects: { name: "projects", fieldType: "array", value: [{ projectName: "Preserved" }] },
+      },
+    };
+    const { result: res } = fromCommon(withProjects);
+    expect(res.projects).toEqual([{ projectName: "Preserved" }]);
+  });
+});
+
 describe("uuidv5", () => {
   it("is deterministic and RFC-4122 version 5", () => {
     expect(uuidv5("HHS-2025-001")).toBe(uuidv5("HHS-2025-001"));
