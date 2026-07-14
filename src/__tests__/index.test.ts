@@ -7,9 +7,11 @@ describe("plugin scaffolding", () => {
     expect(SOURCE_SYSTEM).toBe("OMB NOFO IC");
   });
 
-  it("declares the customFields capability", () => {
+  it("declares the customFields + transforms capabilities", () => {
     expect(plugin.meta?.name).toBe("omb");
-    expect(plugin.meta?.capabilities).toContain("customFields");
+    expect(plugin.meta?.capabilities).toEqual(
+      expect.arrayContaining(["customFields", "transforms"])
+    );
   });
 
   it("defines the expected Opportunity custom fields", () => {
@@ -25,8 +27,15 @@ describe("plugin scaffolding", () => {
         "federalFundingInstruments",
         "federalFundingSources",
         "federalOpportunityNumber",
+        "fiscalYear",
         "legacySerialId",
+        "projects",
       ].sort()
     );
+  });
+
+  it("wires transforms on the Opportunity schema", () => {
+    expect(typeof plugin.schemas.Opportunity.toCommon).toBe("function");
+    expect(typeof plugin.schemas.Opportunity.fromCommon).toBe("function");
   });
 });

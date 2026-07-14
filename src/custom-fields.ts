@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ProjectSchema } from "./schemas";
 
 /**
  * Custom-field value schemas for the OMB NOFO IC plugin's `Opportunity` schema.
@@ -164,5 +165,16 @@ export const customFields = {
   legacySerialId: {
     fieldType: "integer",
     description: "An integer ID for the opportunity, for compatibility with legacy systems",
+  },
+  fiscalYear: {
+    fieldType: "integer",
+    description: "The fiscal year associated with the funding opportunity (IC 1.09.04)",
+  },
+  projects: {
+    fieldType: "array",
+    value: z.array(ProjectSchema),
+    description:
+      "All NOFO IC projects, preserved verbatim for lossless round-trip. The " +
+      "first project's fields are also surfaced to CommonGrants core/custom fields.",
   },
 } as const;
