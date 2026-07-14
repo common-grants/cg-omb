@@ -1,0 +1,109 @@
+---
+import { loadSchema, propertyRows, enumRows, constraints, provenance } from "../lib/schema";
+
+interface Props {
+  file: string;
+}
+
+const { file } = Astro.props;
+const schema = loadSchema(file);
+const props = propertyRows(schema);
+const enums = enumRows(schema);
+const cons = constraints(schema);
+const prov = provenance(schema);
+---
+
+{schema.description && <p>{schema.description}</p>}
+
+{
+  cons.length > 0 && (
+    <table>
+      <tbody>
+        {cons.map(c => (
+          <tr>
+            <th>{c.label}</th>
+            <td>
+              <code>{c.value}</code>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+{
+  props.length > 0 && (
+    <table>
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {props.map(p => (
+          <tr>
+            <td>
+              <code>{p.name}</code>
+            </td>
+            <td>
+              {p.type.href ? (
+                <a href={p.type.href}>
+                  <code>{p.type.label}</code>
+                </a>
+              ) : (
+                <code>{p.type.label}</code>
+              )}
+            </td>
+            <td>{p.required ? "Yes" : "No"}</td>
+            <td>{p.description}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+{
+  enums.length > 0 && (
+    <table>
+      <thead>
+        <tr>
+          <th>Value</th>
+          <th>Label</th>
+        </tr>
+      </thead>
+      <tbody>
+        {enums.map(e => (
+          <tr>
+            <td>
+              <code>{e.value}</code>
+            </td>
+            <td>{e.title}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+{
+  prov.length > 0 && (
+    <>
+      <h3>Provenance</h3>
+      <table>
+        <tbody>
+          {prov.map(p => (
+            <tr>
+              <th>{p.label}</th>
+              <td>{p.values.join(", ")}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  )
+}

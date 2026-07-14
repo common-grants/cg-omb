@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# schemas copied from ../schemas at build time (source of truth is ../schemas)
+public/schemas/
+
+# cloudflare
+.wrangler/
+
+# env
+.env
+.env.production
+
+# os
+.DS_Store

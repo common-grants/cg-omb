@@ -1,0 +1,31 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import AnchorHeading from "@astrojs/starlight/components/AnchorHeading.astro";
+import SchemaTable from "../../components/SchemaTable.astro";
+import SchemaFormatTabs from "../../components/SchemaFormatTabs.astro";
+import { icEntries } from "../../lib/catalog";
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "NOFO Information Collection",
+    description: "The NOFO IC model and its sub-models, composed from the Standard Data Elements.",
+  }}
+  headings={icEntries.map(e => ({ depth: 2, slug: e.slug, text: e.title }))}
+>
+  <p>
+    The Notice of Funding Opportunity Information Collection and its sub-models, composed from the
+    Standard Data Elements. Each field links to the SDE or sub-model it references.
+  </p>
+  {
+    icEntries.map(e => (
+      <section>
+        <AnchorHeading level={2} id={e.slug}>
+          {e.title}
+        </AnchorHeading>
+        <SchemaTable file={e.file} />
+        <SchemaFormatTabs file={e.file} hostedPath={`/schemas/ic/${e.slug}.schema.json`} />
+      </section>
+    ))
+  }
+</StarlightPage>

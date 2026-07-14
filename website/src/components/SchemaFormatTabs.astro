@@ -1,0 +1,27 @@
+---
+import { Tabs, TabItem, Code } from "@astrojs/starlight/components";
+import { rawJson, generateExample } from "../lib/schema";
+
+interface Props {
+  file: string;
+  /** URL of the hosted JSON Schema (served from public/schemas at build). */
+  hostedPath: string;
+}
+
+const { file, hostedPath } = Astro.props;
+const example = JSON.stringify(generateExample(file), null, 2);
+const schema = rawJson(file);
+---
+
+<Tabs>
+  <TabItem label="Example">
+    <Code code={example} lang="json" />
+  </TabItem>
+  <TabItem label="JSON Schema">
+    <Code code={schema} lang="json" />
+  </TabItem>
+</Tabs>
+
+<p>
+  <a href={hostedPath}>Hosted JSON Schema →</a>
+</p>

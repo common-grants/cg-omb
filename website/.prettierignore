@@ -1,0 +1,4 @@
+dist/
+.astro/
+public/schemas/
+pnpm-lock.yaml
