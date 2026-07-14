@@ -80,8 +80,9 @@ The IC has no opportunity id, status, or record timestamps. The transform:
   `costSharing` / `assistanceListings` (see `crosswalk/README.md`); update to the
   reconciled numbers, and revisit the eligibility/geographic modeling per the six
   conceptual changes.
-- **L2 published JSON Schema** (`$ref`-preserving + bundled) and the
-  property-based Zod⇔JSON-Schema equivalence suite are not built yet (plan §3.2/3.3).
+- The **L2 published JSON Schema** (`schemas/ic/`, `$ref`-preserving, split
+  sub-models) and the property-based Zod⇔JSON-Schema equivalence suite now exist.
+  Coverage tracks the T1 fields; expand as T2/T3 fields are modeled.
 - **Cost-sharing `isRequired`** is a heuristic (`true` when a requirement type is
   present); the IC's `Formula/CostSharing/MOE` umbrella code (2.07.01) is not yet
   interpreted.
