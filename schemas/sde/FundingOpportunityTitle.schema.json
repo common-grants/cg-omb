@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityTitle.schema.json",
+  "title": "FundingOpportunityTitle",
+  "description": "A title of the funding opportunity as part of the Notice of Funding Opportunity posted on the OMB-designated government wide web site for finding and applying for Federal financial assistance.",
+  "type": "string",
+  "maxLength": 255,
+  "x-maxLengthSource": "(10)",
+  "x-cdmEntity": "Funding Opportunity",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-relatedElements": [
+    "(10) NOFO Synopsis: FundingOpportunityTitle"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2",
+    "(10) Grants.gov"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityProjectApplicationPeriodEndDate.schema.json",
+  "title": "FundingOpportunityProjectApplicationPeriodEndDate",
+  "description": "The date upon which the submission window for a grant application officially closes  (i.e., close date), after which no further applications will be accepted.",
+  "type": "string",
+  "format": "date",
+  "x-cdmEntity": "Agency Project",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityProjectOtherApplicantEligibilityRequirements.schema.json",
+  "title": "FundingOpportunityProjectOtherApplicantEligibilityRequirements",
+  "description": "A description of any supplemental qualifications, conditions, or requirements that applicants must meet to be eligible for a grant award, beyond the standard eligibility criteria outlined in the notice of funding opportunity.",
+  "type": "string",
+  "x-cdmEntity": "Eligibility",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Eligibility Information"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2"
+  ]
+}

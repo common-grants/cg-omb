@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "funding-opportunity.schema.json",
+  "title": "NofoIcFundingOpportunity",
+  "description": "The funding-opportunity level of a NOFO IC (subsets 1.01, 1.02, 1.09).",
+  "type": "object",
+  "properties": {
+    "awardingAgencyCode": { "$ref": "../sde/AwardingAgencyCode.schema.json" },
+    "awardingAgencyName": { "$ref": "../sde/AwardingAgencyName.schema.json" },
+    "awardingSubTierAgencyCode": { "$ref": "../sde/AwardingSubTierAgencyCode.schema.json" },
+    "awardingSubTierAgencyName": { "$ref": "../sde/AwardingSubTierAgencyName.schema.json" },
+    "fundingOpportunityNumber": { "$ref": "../sde/FundingOpportunityIdentifier.schema.json" },
+    "fundingOpportunityTitle": { "$ref": "../sde/FundingOpportunityTitle.schema.json" },
+    "fundingOpportunityDescription": {
+      "$ref": "../sde/FundingOpportunityDescription.schema.json"
+    },
+    "relatedAssistanceListings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "identifier": { "$ref": "../sde/AssistanceListingNOFORelatedIdentifier.schema.json" },
+          "title": { "$ref": "../sde/AssistanceListingNOFORelatedTitle.schema.json" }
+        }
+      }
+    },
+    "assistanceType": { "$ref": "../sde/AssistanceTypeCode.schema.json" },
+    "fiscalYear": { "$ref": "../sde/FundingOpportunityFiscalYear.schema.json" },
+    "anticipatedAmount": { "$ref": "../sde/FundingOpportunityEstimatedAmount.schema.json" }
+  }
+}

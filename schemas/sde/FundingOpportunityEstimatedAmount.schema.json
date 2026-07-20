@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityEstimatedAmount.schema.json",
+  "title": "FundingOpportunityEstimatedAmount",
+  "description": "The estimated total amount that will be available under the Funding Opportunity in the fiscal year identified",
+  "type": "string",
+  "pattern": "^-?[0-9]+$",
+  "maxLength": 20,
+  "x-cdmEntity": "Funding Opportunity",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2"
+  ]
+}

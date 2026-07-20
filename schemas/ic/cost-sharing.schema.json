@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cost-sharing.schema.json",
+  "title": "NofoIcCostSharing",
+  "description": "A NOFO IC project's cost-sharing / matching / MOE requirement (subset 2.07).",
+  "type": "object",
+  "properties": {
+    "formulaCostSharingMoeRequirement": {
+      "$ref": "../sde/AgencyFormulaCostSharingMOERequirementCode.schema.json"
+    },
+    "requirementType": { "$ref": "../sde/AgencyCostSharingCode.schema.json" },
+    "percentage": { "$ref": "../sde/AgencyMatchingRequirementPercentage.schema.json" },
+    "description": { "$ref": "../sde/AgencyCostSharingDescription.schema.json" }
+  }
+}

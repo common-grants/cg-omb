@@ -167,7 +167,7 @@ export const customFields = {
     description: "An integer ID for the opportunity, for compatibility with legacy systems",
   },
   fiscalYear: {
-    fieldType: "integer",
+    fieldType: "string",
     description: "The fiscal year associated with the funding opportunity (IC 1.09.04)",
   },
   projects: {

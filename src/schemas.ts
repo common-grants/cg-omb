@@ -40,10 +40,11 @@ export const FundingOpportunitySchema = z.object({
   // 1.02 Related Assistance Listing(s)
   relatedAssistanceListings: z.array(RelatedAssistanceListingSchema).nullish(),
 
-  // 1.09 Funding Details
+  // 1.09 Funding Details. NOTE: OMB models these as strings (SDE is source of
+  // truth) — fiscal year and amount included.
   assistanceType: z.string().nullish(), // 1.09.01 (code)
-  fiscalYear: z.number().int().nullish(), // 1.09.04
-  anticipatedAmount: z.number().nullish(), // 1.09.05 (US dollars)
+  fiscalYear: z.string().nullish(), // 1.09.04 (SDE: string)
+  anticipatedAmount: z.string().nullish(), // 1.09.05 (SDE: string, US dollars)
 });
 
 // =============================================================================
@@ -54,7 +55,7 @@ export const FundingOpportunitySchema = z.object({
 export const ProjectCostSharingSchema = z.object({
   formulaCostSharingMoeRequirement: z.string().nullish(), // 2.07.01 umbrella code
   requirementType: z.string().nullish(), // 2.07.03 cost sharing type code
-  percentage: z.number().nullish(), // 2.07.04
+  percentage: z.string().nullish(), // 2.07.04 (SDE: string)
   description: z.string().nullish(), // 2.07.06
 });
 

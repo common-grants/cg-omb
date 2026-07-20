@@ -40,8 +40,6 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "ci": "pnpm run checks && pnpm run build && pnpm run test && pnpm audit",
-    "gen:crosswalk": "pnpm dlx tsx scripts/extract-workbook.ts",
-    "gen:jsonschema": "pnpm dlx tsx scripts/gen-jsonschema.ts",
     "example:parse": "pnpm dlx tsx examples/parse-nofo-ic.ts",
     "example:roundtrip": "pnpm dlx tsx examples/round-trip.ts"
   },

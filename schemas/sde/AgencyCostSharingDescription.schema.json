@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AgencyCostSharingDescription.schema.json",
+  "title": "AgencyCostSharingDescription",
+  "description": "A description of the recipient\u2019s financial or other contributions, including mandatory cost sharing (matching) and voluntary cost sharing, that are pledged or incorporated into the award.",
+  "type": "string",
+  "maxLength": 5000,
+  "x-maxLengthSource": "(3)",
+  "x-cdmEntity": "Federal Program (Assistance Listing)",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Assistance Listing (AL) Information",
+    "AL Compliance Requirements",
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Eligibility Information"
+  ],
+  "x-relatedElements": [
+    "(3) Formula Matching Requirements Maintenance of Effort - Matching Requirements Description"
+  ],
+  "x-descriptionSource": [
+    "(3) Modified"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(3) SAM.gov Assistance Listing",
+    "(5) 31 USC 6102"
+  ]
+}

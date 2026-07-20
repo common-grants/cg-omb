@@ -16,8 +16,8 @@ const FIXTURE: NofoIc = NofoIcSchema.parse({
     fundingOpportunityDescription: "A grant program focused on STEM education.",
     relatedAssistanceListings: [{ identifier: "93.123", title: "STEM Education" }],
     assistanceType: "F001",
-    fiscalYear: 2025,
-    anticipatedAmount: 1_000_000,
+    fiscalYear: "2025",
+    anticipatedAmount: "1000000",
   },
   projects: [
     {
@@ -30,7 +30,7 @@ const FIXTURE: NofoIc = NofoIcSchema.parse({
       eligibleApplicantTypes: ["A01", "A02"],
       eligibleBeneficiaryTypes: ["B01"],
       otherEligibilityRequirements: "Must serve Title I schools.",
-      costSharing: { requirementType: "S", percentage: 25, description: "25% match required." },
+      costSharing: { requirementType: "S", percentage: "25", description: "25% match required." },
       pocRoleType: "Program Officer",
       pocTitle: "Grants Management Specialist",
       pocEmail: "pm@nih.gov",
@@ -110,8 +110,8 @@ describe("fromCommon(toCommon(x)) round-trip", () => {
     expect(back.fundingOpportunity.awardingAgencyCode).toBe("HHS");
     expect(back.fundingOpportunity.awardingSubTierAgencyCode).toBe("NIH");
     expect(back.fundingOpportunity.fundingOpportunityTitle).toBe("STEM Education Grant Program");
-    expect(back.fundingOpportunity.fiscalYear).toBe(2025);
-    expect(back.fundingOpportunity.anticipatedAmount).toBe(1_000_000);
+    expect(back.fundingOpportunity.fiscalYear).toBe("2025");
+    expect(back.fundingOpportunity.anticipatedAmount).toBe("1000000");
     expect(back.fundingOpportunity.assistanceType).toBe("F001");
     expect(back.fundingOpportunity.relatedAssistanceListings).toEqual([
       { identifier: "93.123", title: "STEM Education" },

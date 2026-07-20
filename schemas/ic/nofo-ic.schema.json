@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nofo-ic.schema.json",
+  "title": "NofoIc",
+  "description": "A Notice of Funding Opportunity Information Collection (NOFO IC) instance: one funding opportunity plus its projects, composed from OMB Standard Data Elements.",
+  "type": "object",
+  "required": ["fundingOpportunity"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Opportunity id (not part of the IC; derived if absent)"
+    },
+    "status": { "type": "string", "description": "Opportunity status (not part of the IC)" },
+    "createdDate": {
+      "type": "string",
+      "description": "Record creation timestamp (not part of the IC)"
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "description": "Record last-modified timestamp (not part of the IC)"
+    },
+    "fundingOpportunity": { "$ref": "./funding-opportunity.schema.json" },
+    "projects": { "type": "array", "items": { "$ref": "./project.schema.json" } }
+  }
+}

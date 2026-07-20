@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AgencyCostSharingCode.schema.json",
+  "title": "AgencyCostSharingCode",
+  "description": "A code that indicates whether recipient contributions are mandatory cost sharing (matching) or voluntary cost sharing, which are pledged contributions considered by the awarding agency during application evaluation.",
+  "type": "string",
+  "pattern": "^[A-z]$",
+  "maxLength": 1,
+  "oneOf": [
+    {
+      "const": "M",
+      "title": "Mandatory",
+      "description": "Cost sharing is mandatory (i.e., matching)"
+    },
+    {
+      "const": "V",
+      "title": "Voluntary rating",
+      "description": "Matching requirements are voluntary and part of the rating criteria"
+    },
+    {
+      "const": "D",
+      "title": "Determined at NOFO level",
+      "description": "The cost sharing/matching requirements are determined as part of the Notice of Funding Opportunity (NOFO)"
+    },
+    {
+      "const": "E",
+      "title": "Mandatory with exceptions or waivers",
+      "description": "Matching requirements are mandatory but there is an allowance for waivers or certain exceptions"
+    },
+    {
+      "const": "A",
+      "title": "Determined at time of Award"
+    }
+  ],
+  "x-cdmEntity": "Federal Program (Assistance Listing)",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Assistance Listing (AL) Information",
+    "AL Compliance Requirements",
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Eligibility Information"
+  ],
+  "x-relatedElements": [
+    "(3) Formula Matching Requirements Maintenance of Effort - Indicators"
+  ],
+  "x-descriptionSource": [
+    "(3) Modified"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(3) SAM.gov Assistance Listing",
+    "(5) 31 USC 6102"
+  ]
+}

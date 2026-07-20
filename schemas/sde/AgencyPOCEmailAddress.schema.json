@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AgencyPOCEmailAddress.schema.json",
+  "title": "AgencyPOCEmailAddress",
+  "description": "The email address monitored by the POC in the grant management role.",
+  "type": "string",
+  "format": "email",
+  "maxLength": 255,
+  "x-cdmEntity": "Federal Program POC",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance"
+  ],
+  "x-dataGroups": [
+    "Assistance Listing (AL) Information",
+    "AL Contact Information"
+  ],
+  "x-relatedElements": [
+    "(3) Email Address"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(3) SAM.gov Assistance Listing",
+    "(5) 31 USC 6102"
+  ]
+}

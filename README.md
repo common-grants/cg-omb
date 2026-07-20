@@ -22,7 +22,7 @@ Information Collection (IC)**.
 | Layer                               | Ownership    | Location                            |
 | ----------------------------------- | ------------ | ----------------------------------- |
 | SDE JSON (upstream truth)           | OMB          | `schemas/sde/*.schema.json`         |
-| NOFO IC JSON Schema (published)     | This package | `schemas/nofo-ic/`                  |
+| NOFO IC JSON Schema (published)     | This package | `schemas/ic/`                       |
 | Zod + types                         | This package | `src/schemas/`                      |
 | Plugin (transforms + custom fields) | This package | `src/index.ts`, `src/transforms.ts` |
 

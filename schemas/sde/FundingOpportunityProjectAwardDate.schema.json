@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityProjectAwardDate.schema.json",
+  "title": "FundingOpportunityProjectAwardDate",
+  "description": "The date (or expected date) upon which the grantmaking agency expects to formally issue the grant award to the selected recipient(s).",
+  "type": "string",
+  "format": "date",
+  "x-cdmEntity": "Agency Project",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-relatedElements": [
+    "(10) Estimated Award Date"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2"
+  ]
+}

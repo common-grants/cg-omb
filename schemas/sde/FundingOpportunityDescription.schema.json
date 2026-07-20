@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityDescription.schema.json",
+  "title": "FundingOpportunityDescription",
+  "description": "A brief but descriptive executive summary of the Notice of Funding Opportunity, as well as the intended outcomes.",
+  "type": "string",
+  "maxLength": 5000,
+  "x-cdmEntity": "Funding Opportunity",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-relatedElements": [
+    "(10) NOFO Synopsis: FundingOpportunityDescription"
+  ],
+  "x-descriptionSource": [
+    "(2) Modified"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2",
+    "(10) Grants.gov"
+  ]
+}

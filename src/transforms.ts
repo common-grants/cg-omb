@@ -45,9 +45,9 @@ const APPLICANT_TYPE_TO_COMMON: Record<string, string> = {};
 // Helpers
 // =============================================================================
 
-/** CommonGrants money object from a dollar amount. */
-function money(amount: number): { amount: string; currency: string } {
-  return { amount: String(amount), currency: "USD" };
+/** CommonGrants money object from a dollar amount (the SDE amount is a string). */
+function money(amount: string): { amount: string; currency: string } {
+  return { amount, currency: "USD" };
 }
 
 /** A CommonGrants single-date key-date event. */
@@ -190,7 +190,8 @@ export function toCommon(source: NofoIc): TransformResult<unknown> {
       cf.costSharing = field("costSharing", "object", {
         isRequired: cs.requirementType != null ? true : undefined,
         requirementType: cs.requirementType ?? null,
-        percentage: cs.percentage ?? null,
+        // The IC percentage is a string; the CG custom field value is numeric.
+        percentage: cs.percentage != null ? Number(cs.percentage) : null,
         details: cs.description ?? null,
       });
     }
@@ -244,15 +245,9 @@ export function fromCommon(common: any): TransformResult<NofoIc> {
     Array<{ type?: string | null; customValue?: string | null }> | undefined;
   const assistanceType = instruments?.[0]?.customValue ?? instruments?.[0]?.type ?? null;
 
+  // The SDE amount is a string; CommonGrants money.amount is also a string.
   const amount = common.funding?.totalAmountAvailable?.amount;
-  const anticipatedAmount = amount != null ? Number(amount) : null;
-  if (amount != null && Number.isNaN(anticipatedAmount)) {
-    errors.push(
-      new TransformError(`Non-numeric funding amount: ${amount}`, {
-        path: "funding.totalAmountAvailable.amount",
-      })
-    );
-  }
+  const anticipatedAmount = amount != null ? String(amount) : null;
 
   const statusValue = common.status?.customValue ?? common.status?.value;
   const status = statusValue && statusValue !== "custom" ? statusValue : null;

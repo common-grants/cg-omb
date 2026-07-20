@@ -20,8 +20,8 @@ const nofoIc = NofoIcSchema.parse({
     fundingOpportunityDescription: "A grant program focused on STEM education.",
     relatedAssistanceListings: [{ identifier: "93.123", title: "STEM Education" }],
     assistanceType: "F001",
-    fiscalYear: 2025,
-    anticipatedAmount: 1_000_000,
+    fiscalYear: "2025",
+    anticipatedAmount: "1000000",
   },
   projects: [
     {
@@ -29,7 +29,7 @@ const nofoIc = NofoIcSchema.parse({
       anticipatedApplicationPeriodStartDate: "2026-01-01",
       anticipatedApplicationPeriodEndDate: "2026-03-01",
       eligibleApplicantTypes: ["A01"],
-      costSharing: { requirementType: "S", percentage: 25 },
+      costSharing: { requirementType: "S", percentage: "25" },
       pocTitle: "Grants Management Specialist",
       pocEmail: "pm@nih.gov",
     },

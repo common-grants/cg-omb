@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AssistanceListingNOFORelatedTitle.schema.json",
+  "title": "AssistanceListingNOFORelatedTitle",
+  "description": "The official name of the federal government  program associated with the funding opportunity. This may correspond to the program\u2019s statutory title or to the official title used for federal reporting.",
+  "type": "string",
+  "maxLength": 200,
+  "x-cdmEntity": "Funding Opportunity",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Program Funding"
+  ],
+  "x-relatedElements": [
+    "(2) AssistanceListingTitle",
+    "(3) Title"
+  ],
+  "x-descriptionSource": [
+    "(2) Modified"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(2) GSDM v1.1",
+    "(3) SAM.gov Assistance Listing"
+  ]
+}

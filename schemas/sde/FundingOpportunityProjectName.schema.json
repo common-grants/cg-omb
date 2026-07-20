@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityProjectName.schema.json",
+  "title": "FundingOpportunityProjectName",
+  "description": "The name of the grantmaking agency funding opportunity project for which the funding opportunity project goals, objectives, and intended results align with the program (assistance listing) and are described in the Notice of Funding Opportunity (NOFO).",
+  "type": "string",
+  "maxLength": 255,
+  "x-cdmEntity": "Agency Project",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2"
+  ]
+}
