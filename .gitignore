@@ -46,3 +46,6 @@ Thumbs.db
 
 # Raw upstream OMB SDE JSON Schemas (staged locally; a subset is copied into schemas/sde/)
 json-schemas/
+
+# Local crosswalk working data (extraction/reconciliation artifacts kept out of the repo)
+crosswalk-local/
