@@ -13,7 +13,7 @@
     { "type": "test", "section": "Miscellaneous", "hidden": true }
   ],
   "packages": {
-    ".": {
+    "plugin": {
       "package-name": "@common-grants/cg-omb",
       "changelog-path": "CHANGELOG.md",
       "initial-version": "0.1.0"

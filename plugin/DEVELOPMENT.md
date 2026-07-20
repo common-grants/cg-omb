@@ -24,18 +24,23 @@ pnpm install
 
 ## Repository layout
 
+This package lives in `plugin/` within a small monorepo:
+
 ```
-schemas/
+plugin/                      # this package
+  src/                       # L1 Zod + types, L3 plugin (transforms, custom fields)
+  src/__tests__/             # unit + property-based equivalence specs
+  examples/                  # runnable usage examples
+schemas/                     # published JSON Schema (referenced by consumers and the site)
   sde/                       # L0: OMB SDE JSON (subset), verbatim
-  ic/                        # L2: published NOFO IC JSON Schema (root + split sub-models)
-src/                         # L1 Zod + types, L3 plugin (transforms, custom fields)
-__tests__/ (src/__tests__)   # unit + property-based equivalence specs
-examples/                    # runnable usage examples
+  ic/                        # L2: NOFO IC schema (root + split sub-models)
+website/                     # documentation site for the SDE and NOFO IC schemas
+docs/                        # field mapping and discrepancy notes across the systems
 ```
 
-> **Note:** the raw upstream SDE JSON Schemas are currently staged under
-> `json-schemas/sde/`. Phase 1 selects the prioritized subset and vendors it
-> into `schemas/sde/`.
+> **Note:** the raw upstream SDE JSON Schemas are staged locally under
+> `json-schemas/` (gitignored); a prioritized subset is copied into
+> `schemas/sde/`.
 
 ## Source inputs
 

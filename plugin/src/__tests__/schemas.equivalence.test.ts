@@ -33,15 +33,15 @@ describe("Zod ⇔ published JSON Schema equivalence", () => {
 
 describe("published schema composition", () => {
   it("the root $refs the split sub-model files", () => {
-    const root = JSON.parse(readFileSync("schemas/ic/nofo-ic.schema.json", "utf8"));
+    const root = JSON.parse(readFileSync("../schemas/ic/nofo-ic.schema.json", "utf8"));
     expect(root.properties.fundingOpportunity.$ref).toBe("./funding-opportunity.schema.json");
     expect(root.properties.projects.items.$ref).toBe("./project.schema.json");
   });
 
   it("sub-models $ref the SDE files (guards against inlining)", () => {
-    const fo = readFileSync("schemas/ic/funding-opportunity.schema.json", "utf8");
+    const fo = readFileSync("../schemas/ic/funding-opportunity.schema.json", "utf8");
     expect(fo).toContain("../sde/FundingOpportunityTitle.schema.json");
-    const project = JSON.parse(readFileSync("schemas/ic/project.schema.json", "utf8"));
+    const project = JSON.parse(readFileSync("../schemas/ic/project.schema.json", "utf8"));
     expect(project.properties.costSharing.$ref).toBe("./cost-sharing.schema.json");
     expect(project.properties.eligibleApplicantTypes.items.$ref).toBe(
       "../sde/EligibleApplicantEntityTypeCode.schema.json"

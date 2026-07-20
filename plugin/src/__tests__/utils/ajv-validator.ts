@@ -14,8 +14,9 @@ import addFormats from "ajv-formats";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
-const SDE_DIR = "schemas/sde";
-const IC_DIR = "schemas/ic";
+// Schemas live at the repo root (shared with the website); tests run from plugin/.
+const SDE_DIR = "../schemas/sde";
+const IC_DIR = "../schemas/ic";
 
 /** The `$id`s under which the NOFO IC schemas are registered. */
 export const NOFO_IC_ID = "nofo-ic.schema.json";
