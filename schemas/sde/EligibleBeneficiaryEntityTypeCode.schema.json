@@ -1,0 +1,326 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "EligibleBeneficiaryEntityTypeCode.schema.json",
+  "title": "EligibleBeneficiaryEntityTypeCode",
+  "description": "A code that indicates the category of legal entity or individual that is eligible to receive the ultimate benefits of the federal government assistance.",
+  "type": "string",
+  "pattern": "^[A-z]{2}[0-9]{5}$",
+  "minLength": 7,
+  "maxLength": 7,
+  "oneOf": [
+    {
+      "const": "ET11010",
+      "title": "Unrestricted by Entity Type"
+    },
+    {
+      "const": "ET11020",
+      "title": "Unrestricted by Individual Type"
+    },
+    {
+      "const": "ET12010",
+      "title": "Specific Restrictions Determined at NOFO Level"
+    },
+    {
+      "const": "ET21010",
+      "title": "U.S. Federal Government"
+    },
+    {
+      "const": "ET22010",
+      "title": "U.S. State Government (including the District of Columbia)"
+    },
+    {
+      "const": "ET22020",
+      "title": "U.S. Territory (or Possession) Government (including freely-associated states)"
+    },
+    {
+      "const": "ET22030",
+      "title": "Department or Agency of a U.S. State Government"
+    },
+    {
+      "const": "ET22040",
+      "title": "Department or Agency of a U.S. Territorial Government"
+    },
+    {
+      "const": "ET22050",
+      "title": "Interstate Organization"
+    },
+    {
+      "const": "ET23010",
+      "title": "Federally Recognized Indian/Native American/Alaska Native Tribal Government"
+    },
+    {
+      "const": "ET23020",
+      "title": "Indian/Native American/Alaska Native Tribal Government (Other than Federally Recognized)"
+    },
+    {
+      "const": "ET23030",
+      "title": "Tribally Designated Housing Authority"
+    },
+    {
+      "const": "ET24010",
+      "title": "Municipality or Township government (inclusive of cities, towns, boroughs (except in Alaska), and villages)"
+    },
+    {
+      "const": "ET24020",
+      "title": "County Government (inclusive of boroughs in Alaska, parishes and other governmental entities with geographic regional control and authority)"
+    },
+    {
+      "const": "ET24030",
+      "title": "School District Government"
+    },
+    {
+      "const": "ET24040",
+      "title": "School District"
+    },
+    {
+      "const": "ET24050",
+      "title": "Other Local Government Consortium, Regional Organization (Intrastate), or Other Local Government Combination"
+    },
+    {
+      "const": "ET25010",
+      "title": "Public Housing Authority"
+    },
+    {
+      "const": "ET25020",
+      "title": "Planning Commission"
+    },
+    {
+      "const": "ET25030",
+      "title": "Airport Authority"
+    },
+    {
+      "const": "ET25040",
+      "title": "Port Authority"
+    },
+    {
+      "const": "ET25050",
+      "title": "Transit Authority"
+    },
+    {
+      "const": "ET25060",
+      "title": "Water Delivery Authority"
+    },
+    {
+      "const": "ET25070",
+      "title": "Other Special District Government"
+    },
+    {
+      "const": "ET26010",
+      "title": "Local"
+    },
+    {
+      "const": "ET26020",
+      "title": "State"
+    },
+    {
+      "const": "ET26030",
+      "title": "Territorial"
+    },
+    {
+      "const": "ET26040",
+      "title": "Tribal"
+    },
+    {
+      "const": "ET31010",
+      "title": "Foreign Government"
+    },
+    {
+      "const": "ET32010",
+      "title": "ET3201 - Foreign Non-Government Nonprofit Organization"
+    },
+    {
+      "const": "ET32020",
+      "title": "ET3202 - Foreign Non-Government Entity Not-for-Profit Organization"
+    },
+    {
+      "const": "ET32030",
+      "title": "ET3203 - Foreign Non-Government For- Profit Organization"
+    },
+    {
+      "const": "ET33010",
+      "title": "International Organization"
+    },
+    {
+      "const": "ET41010",
+      "title": "Nonprofit Organization"
+    },
+    {
+      "const": "ET41020",
+      "title": "Not-for-Profit Organization"
+    },
+    {
+      "const": "ET41030",
+      "title": "For-Profit Organization"
+    },
+    {
+      "const": "ET51010",
+      "title": "Health Professional"
+    },
+    {
+      "const": "ET51020",
+      "title": "Education Professional"
+    },
+    {
+      "const": "ET51030",
+      "title": "Scientist/Researcher"
+    },
+    {
+      "const": "ET51040",
+      "title": "Artist/Humanist"
+    },
+    {
+      "const": "ET51050",
+      "title": "Engineer/Architect"
+    },
+    {
+      "const": "ET51060",
+      "title": "Builder/Contractor/Developer"
+    },
+    {
+      "const": "ET51070",
+      "title": "Miner"
+    },
+    {
+      "const": "ET51080",
+      "title": "Longshore and Harbor Worker"
+    },
+    {
+      "const": "ET51090",
+      "title": "Farmer/Rancher/Agriculture Producer"
+    },
+    {
+      "const": "ET51100",
+      "title": "Farmworker"
+    },
+    {
+      "const": "ET51110",
+      "title": "Industrialist/Business Person"
+    },
+    {
+      "const": "ET51120",
+      "title": "Small Business Person"
+    },
+    {
+      "const": "ET51130",
+      "title": "Criminal Justice Personnel"
+    },
+    {
+      "const": "ET52010",
+      "title": "Infant and Toddler (0-3)"
+    },
+    {
+      "const": "ET52020",
+      "title": "Young Child (4-9)"
+    },
+    {
+      "const": "ET52030",
+      "title": "Pre-Teen (10-12)"
+    },
+    {
+      "const": "ET52040",
+      "title": "Teen (13-19)"
+    },
+    {
+      "const": "ET52050",
+      "title": "Adult (20 to 64)"
+    },
+    {
+      "const": "ET52060",
+      "title": "Senior Citizen (65+)"
+    },
+    {
+      "const": "ET53010",
+      "title": "Early Childhood Education"
+    },
+    {
+      "const": "ET53020",
+      "title": "Primary Education"
+    },
+    {
+      "const": "ET53030",
+      "title": "Lower Secondary Education"
+    },
+    {
+      "const": "ET53040",
+      "title": "Upper Secondary Education"
+    },
+    {
+      "const": "ET53050",
+      "title": "Non-university Higher Education"
+    },
+    {
+      "const": "ET53060",
+      "title": "University Higher Education"
+    },
+    {
+      "const": "ET53070",
+      "title": "Graduate and Professional Higher Education"
+    },
+    {
+      "const": "ET53080",
+      "title": "Trainee"
+    },
+    {
+      "const": "ET59010",
+      "title": "Homeowner"
+    },
+    {
+      "const": "ET59020",
+      "title": "Land/Property Owner"
+    },
+    {
+      "const": "ET59030",
+      "title": "Refugee"
+    },
+    {
+      "const": "ET59040",
+      "title": "U.S. Citizen"
+    },
+    {
+      "const": "ET59050",
+      "title": "Resident/Citizen of a U.S. Territory"
+    },
+    {
+      "const": "ET59060",
+      "title": "Veteran (including dependents)"
+    },
+    {
+      "const": "ET59070",
+      "title": "Active-Duty Service Person (including dependents)"
+    },
+    {
+      "const": "ET59080",
+      "title": "Reservist (including dependents)"
+    },
+    {
+      "const": "ET59090",
+      "title": "Consumer"
+    },
+    {
+      "const": "ET54999",
+      "title": "Other"
+    }
+  ],
+  "x-cdmEntity": "Eligibility",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Assistance Listing (AL) Information",
+    "AL Criteria for Applying",
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Eligibility Information"
+  ],
+  "x-relatedElements": [
+    "(3) Beneficiary Eligibility - Beneficiary Eligibility"
+  ],
+  "x-descriptionSource": [
+    "(3) Modified"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(3) SAM.gov Assistance Listing",
+    "(5) 31 USC 6102"
+  ]
+}

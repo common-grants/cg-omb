@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AgencyPOCRoleTypeCode.schema.json",
+  "title": "AgencyPOCRoleTypeCode",
+  "description": "A code that indicates the role of an agency point of contact.",
+  "type": "string",
+  "pattern": "^[A-z]$",
+  "maxLength": 1,
+  "oneOf": [
+    {
+      "const": "N",
+      "title": "Grants Management POC",
+      "description": "The individual responsible for handling inquiries related to a grant management artifact, such as the Assistance Listing or the Notice of Funding Opportunity"
+    },
+    {
+      "const": "F",
+      "title": "Financial Management Support POC",
+      "description": "The individual responsible for handling inquiries related to the grants financial process"
+    },
+    {
+      "const": "G",
+      "title": "GMS Technical Support POC",
+      "description": "The individual responsible for handling technical inquiries related to the grants management system"
+    },
+    {
+      "const": "O",
+      "title": "Other",
+      "description": "Any other point of contact related to the grants process"
+    }
+  ],
+  "x-cdmEntity": "Federal Program POC",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Assistance Listing (AL) Information",
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Post-Award Requirements and Administration"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(5) 31 USC 6102"
+  ]
+}

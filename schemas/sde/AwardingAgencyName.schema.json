@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AwardingAgencyName.schema.json",
+  "title": "AwardingAgencyName",
+  "description": "The name of the department or independent agency of the federal government as used in the Treasury Account Fund Symbol (TAFS) that awards, executes, or is otherwise responsible for the transaction (as shown in the Federal Hierarchy).",
+  "type": "string",
+  "maxLength": 100,
+  "x-maxLengthSource": "(2)",
+  "x-domainValues": "Please follow these instructions:  See:\nhttps://files.usaspending.gov/reference_data/agency_codes.csv\n(AGENCY NAME and FREC Entity Description columns).Agency names are consistent with the GSA IAE Federal Hierarchy from SAM.gov.",
+  "x-cdmEntity": "Awarding Agency",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity",
+    "GRM.030.010 Grant Award Issuance"
+  ],
+  "x-dataGroups": [
+    "Assistance Listing (AL) Information",
+    "AL Header",
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-relatedElements": [
+    "(2) AwardingAgencyName"
+  ],
+  "x-descriptionSource": [
+    "(2) Modified"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(2) GSDM v1.1",
+    "(3) SAM.gov Assistance Listing"
+  ]
+}

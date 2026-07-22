@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityProjectStartDate.schema.json",
+  "title": "FundingOpportunityProjectStartDate",
+  "description": "The date (or expected date) upon which the funding opportunity project is expected to begin its activities, as projected by the grantmaking agency or agreed upon by the grant recipient.",
+  "type": "string",
+  "format": "date",
+  "x-cdmEntity": "Agency Project",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-relatedElements": [
+    "(10) Estimated Project Start Date"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2"
+  ]
+}

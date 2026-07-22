@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityIdentifier.schema.json",
+  "title": "FundingOpportunityIdentifier",
+  "description": "The unique alphanumeric identifier that a Federal agency assigns to its Notice of Funding Opportunity posted on the OMB-designated government wide web site\u00a0(currently\u00a0grants.gov)\u00a0for finding and applying for federal financial assistance. Applicable to Competitive Discretionary Grants and Cooperative Agreements.",
+  "type": "string",
+  "maxLength": 40,
+  "x-maxLengthSource": "(10)",
+  "x-cdmEntity": "Funding Opportunity",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-relatedElements": [
+    "(2) FundingOpportunityNumber",
+    "(10) NOFO Synopsis: FundingOpportunityNumber"
+  ],
+  "x-descriptionSource": [
+    "(2) Source"
+  ],
+  "x-references": [
+    "(2) GSDM v1.1",
+    "(10) Grants.gov"
+  ]
+}

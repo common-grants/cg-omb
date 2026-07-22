@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AgencyPOCTitle.schema.json",
+  "title": "AgencyPOCTitle",
+  "description": "The title of the agency point of contact or the name of the office or center serving as the point of contact.",
+  "type": "string",
+  "maxLength": 255,
+  "x-cdmEntity": "Federal Program POC",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Post-Award Requirements and Administration"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(5) 31 USC 6102"
+  ]
+}

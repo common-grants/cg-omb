@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AgencyMatchingRequirementPercentage.schema.json",
+  "title": "AgencyMatchingRequirementPercentage",
+  "description": "The percentage of either the total funding opportunity project cost or award amount that must be provide that must be provided from non-Federal sources as mandatory matching or voluntary committed cost sharing/matching.",
+  "type": "string",
+  "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+  "maxLength": 5,
+  "x-cdmEntity": "Federal Program (Assistance Listing)",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Assistance Listing (AL) Information",
+    "AL Compliance Requirements",
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Eligibility Information"
+  ],
+  "x-relatedElements": [
+    "(3) Formula Matching Requirements Maintenance of Effort - Matching Requirements"
+  ],
+  "x-descriptionSource": [
+    "(3) Modified"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(3) SAM.gov Assistance Listing",
+    "(5) 31 USC 6102"
+  ]
+}

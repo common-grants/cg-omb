@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AgencyFormulaCostSharingMOERequirementCode.schema.json",
+  "title": "AgencyFormulaCostSharingMOERequirementCode",
+  "description": "A code that indicates whether the program (assistance listing) or funding opportunity project has a formula, cost sharing, or maintenance of effort (MOE) requirement.",
+  "type": "string",
+  "pattern": "^[A-z]$",
+  "maxLength": 1,
+  "oneOf": [
+    {
+      "const": "M",
+      "title": "MOE",
+      "description": "This listing has maintenance of effort (MOE) requirements"
+    },
+    {
+      "const": "F",
+      "title": "Formula",
+      "description": "This listing awards funds to recipients based on a statutory or regulatory formula"
+    },
+    {
+      "const": "S",
+      "title": "Cost Sharing",
+      "description": "This listing has award recipient contribution requirements"
+    },
+    {
+      "const": "N",
+      "title": "Not Applicable",
+      "description": "This listing does not have any statutory/regulatory formula, cost sharing, or maintenance of effort requirements"
+    }
+  ],
+  "x-cdmEntity": "Federal Program (Assistance Listing)",
+  "x-grantsActivityReferences": [
+    "GRM.010.010 Grant Program Set-up and Maintenance",
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Assistance Listing (AL) Information",
+    "AL Compliance Requirements",
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Eligibility Information"
+  ],
+  "x-relatedElements": [
+    "(3) Formula Matching Requirements Maintenance of Effort - Indicators"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) 2 CFR 200.203",
+    "(3) SAM.gov Assistance Listing",
+    "(5) 31 USC 6102"
+  ]
+}

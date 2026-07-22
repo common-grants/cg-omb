@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "FundingOpportunityFiscalYear.schema.json",
+  "title": "FundingOpportunityFiscalYear",
+  "description": "The federal government fiscal year in which the funding opportunity funds will be available.",
+  "type": "string",
+  "pattern": "^[0-9]{4}$",
+  "minLength": 4,
+  "maxLength": 4,
+  "x-minLengthSource": "(2)",
+  "x-maxLengthSource": "(2)",
+  "x-cdmEntity": "Funding Opportunity",
+  "x-grantsActivityReferences": [
+    "GRM.010.020 Grant Program Funding Opportunity"
+  ],
+  "x-dataGroups": [
+    "Notice of Funding Opportunity (NOFO) Information",
+    "NOFO Basic Information"
+  ],
+  "x-descriptionSource": [
+    "Crafted"
+  ],
+  "x-references": [
+    "(1) Appendix I to Part 200, Title 2"
+  ]
+}
