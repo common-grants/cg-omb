@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+.claude/
+.cursor/
+
+# Build output
+dist/
+build/
+.generated/
+tsp-output/
+*.tgz
+
+# Coverage reports
+coverage/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Raw upstream federal SDE JSON Schemas (staged locally; a subset is copied into schemas/sde/)
+json-schemas/
+
+# Local crosswalk working data (extraction/reconciliation artifacts kept out of the repo)
+crosswalk-local/

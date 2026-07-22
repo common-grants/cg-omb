@@ -1,0 +1,18 @@
+{
+  "name": "common-grants-federal",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.34.3",
+  "scripts": {
+    "ci:ts-plugin": "pnpm --filter @common-grants/cg-federal run ci",
+    "ci:website": "pnpm --filter website run ci",
+    "ci": "pnpm run ci:ts-plugin && pnpm run ci:website"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "^0.28.1",
+      "sharp": "^0.35.3",
+      "zod@3": "3.25.76"
+    }
+  }
+}
