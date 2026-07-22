@@ -1,0 +1,4 @@
+# Generated / vendored — never reformatted
+CHANGELOG.md
+pnpm-lock.yaml
+dist/
