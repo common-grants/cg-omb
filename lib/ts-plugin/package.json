@@ -1,7 +1,7 @@
 {
   "name": "@common-grants/cg-federal",
   "description": "A CommonGrants plugin for the federal grant data standards (NOFO Information Collection)",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
