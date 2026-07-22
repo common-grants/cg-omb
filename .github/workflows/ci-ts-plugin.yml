@@ -1,0 +1,31 @@
+name: "CI - TS Plugin"
+
+on:
+  workflow_call:
+  pull_request:
+    paths:
+      - lib/ts-plugin/**
+      - schemas/**
+      - .github/workflows/ci-ts-plugin.yml
+      - pnpm-workspace.yaml
+      - pnpm-lock.yaml
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm --filter @common-grants/cg-federal run ci

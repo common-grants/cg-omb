@@ -1,0 +1,29 @@
+name: "Release Please"
+
+# release-please analyzes conventional commits since the last release and
+# maintains a release PR per package. Merging it bumps the version, updates the
+# CHANGELOG, and pushes a tag like `@common-grants/cg-federal@0.1.0`, which in
+# turn triggers cd-publish-ts-plugin.yml.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+    outputs:
+      ts_plugin_released: ${{ steps.release.outputs['lib/ts-plugin--release_created'] }}
+      ts_plugin_tag: ${{ steps.release.outputs['lib/ts-plugin--tag_name'] }}

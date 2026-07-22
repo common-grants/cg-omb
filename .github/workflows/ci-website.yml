@@ -1,0 +1,29 @@
+name: "CI - Website"
+
+on:
+  workflow_call:
+  pull_request:
+    paths:
+      - website/**
+      - schemas/**
+      - .github/workflows/ci-website.yml
+      - pnpm-workspace.yaml
+      - pnpm-lock.yaml
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      # format check + astro check + build (no deploy, no secrets needed)
+      - run: pnpm --filter website run ci

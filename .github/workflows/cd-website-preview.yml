@@ -1,0 +1,88 @@
+name: "CD - Website: PR Preview"
+
+# Uploads a Worker version with a per-PR preview alias instead of deploying a
+# separate Worker per PR. The production Worker stays untouched; the alias URL
+# is `pr-<N>-<worker-name>.<workers-subdomain>.workers.dev` and overwrites
+# itself on each push, so no cleanup workflow is needed.
+#
+# Requires secrets.CLOUDFLARE_API_TOKEN and secrets.CLOUDFLARE_ACCOUNT_ID.
+
+on:
+  pull_request:
+    paths:
+      - website/**
+      - schemas/**
+      - .github/workflows/cd-website-preview.yml
+      - pnpm-workspace.yaml
+      - pnpm-lock.yaml
+
+concurrency:
+  group: website-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: ./website
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        working-directory: .
+        run: pnpm install --frozen-lockfile
+
+      # Copies ../schemas into public/schemas and builds the Astro site to dist/
+      - name: Build website
+        run: pnpm run build
+
+      - name: Upload Worker version with PR alias
+        id: upload
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          pnpm exec wrangler versions upload \
+            --preview-alias "pr-${{ github.event.pull_request.number }}" \
+            --message "PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}" \
+            2>&1 | tee wrangler-upload.log
+          url=$(grep -oE "https://pr-${{ github.event.pull_request.number }}-[A-Za-z0-9.-]+\.workers\.dev" wrangler-upload.log | head -n1 || true)
+          if [ -z "$url" ]; then
+            echo "::error::Could not find the preview alias URL in the wrangler output"
+            exit 1
+          fi
+          echo "preview-url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Find existing preview comment
+        id: find-comment
+        uses: peter-evans/find-comment@v4
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: Website Preview
+
+      - name: Post preview URL to PR
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            **Website Preview**
+
+            ${{ steps.upload.outputs.preview-url }}
+
+            The alias overwrites itself on each push to this PR. The production Worker is untouched.

@@ -1,0 +1,45 @@
+name: "CD - Website: Production"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - website/**
+      - schemas/**
+      - pnpm-workspace.yaml
+      - pnpm-lock.yaml
+      - .github/workflows/cd-website-prod.yml
+  workflow_dispatch:
+
+# One in-flight production deploy at a time; newer pushes supersede older runs.
+concurrency:
+  group: website-prod
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: cloudflare-production
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - run: pnpm install --frozen-lockfile
+
+      # Copies ../schemas into public/schemas and builds the Astro site to dist/
+      - run: pnpm --filter website run build
+
+      - name: Deploy to Cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: pnpm --filter website exec wrangler deploy
