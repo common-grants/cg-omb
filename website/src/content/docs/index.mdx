@@ -1,0 +1,21 @@
+---
+title: Federal NOFO IC
+description: Browse the federal Notice of Funding Opportunity Information Collection and its Standard Data Elements.
+---
+
+This site documents the schemas behind the
+[`@common-grants/cg-federal`](https://github.com/common-grants/ts-plugin-federal) plugin.
+
+## Two layers
+
+- **[Information Collections](/ic/)** — the NOFO IC model and its sub-models
+  (funding opportunity, project, cost sharing). These are composed from the SDEs
+  below and are what the plugin maps to and from CommonGrants.
+- **[Standard Data Elements](/sde/)** — the atomic field definitions the
+  federal grant data standards working group maintains. Each IC field references
+  one of these, so you can trace any field back to its authoritative type,
+  constraints, and provenance.
+
+Every schema on this site is generated directly from the JSON Schema files in
+the repository's `schemas/` directory — the same files the plugin validates
+against.

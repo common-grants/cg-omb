@@ -1,0 +1,22 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import SchemaTable from "../../components/SchemaTable.astro";
+import SchemaFormatTabs from "../../components/SchemaFormatTabs.astro";
+import { sdeEntries, type CatalogEntry } from "../../lib/catalog";
+
+export const getStaticPaths = () =>
+  sdeEntries.map(e => ({ params: { slug: e.slug }, props: { entry: e } }));
+
+const { entry } = Astro.props as { entry: CatalogEntry };
+---
+
+<StarlightPage
+  frontmatter={{
+    title: entry.title,
+    description: entry.description || `${entry.title} Standard Data Element.`,
+  }}
+>
+  <SchemaTable file={entry.file} />
+  <h2>Example &amp; schema</h2>
+  <SchemaFormatTabs file={entry.file} hostedPath={`/schemas/${entry.section}/${entry.slug}.schema.json`} />
+</StarlightPage>

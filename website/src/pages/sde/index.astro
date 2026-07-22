@@ -1,0 +1,26 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { sdeEntries } from "../../lib/catalog";
+---
+
+<StarlightPage
+  frontmatter={{
+    title: "Standard Data Elements",
+    description: "The atomic federal Standard Data Elements referenced by the NOFO IC.",
+  }}
+>
+  <p>
+    The {sdeEntries.length} atomic federal Standard Data Elements that the NOFO IC references. Each
+    defines the authoritative type, constraints, and provenance for a field.
+  </p>
+  <ul>
+    {
+      sdeEntries.map(e => (
+        <li>
+          <a href={`/sde/${e.slug}/`}>{e.title}</a>
+          {e.description && <> — {e.description}</>}
+        </li>
+      ))
+    }
+  </ul>
+</StarlightPage>
