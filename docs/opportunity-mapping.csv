@@ -1,0 +1,212 @@
+Entity,In NOFO IC,In SGG,In CG,Source,CommonGrants Field,SGG API Field (v0),NOFO IC Item,NOFO IC Field,Change vs old sheet
+Opportunity,no,yes,yes,cg-core,id,opportunity_id,,,
+Opportunity,yes,yes,yes,cg-core,title,opportunity_title,1.01.05,Funding Opportunity Title,unchanged
+Opportunity,yes,yes,yes,cg-core,description,summary.summary_description,1.01.08,Funding Opportunity Description,unchanged
+Opportunity,no,yes,yes,cg-core,status.value,opportunity_status,,,
+Opportunity,no,no,yes,cg-core,status.customValue,,,,
+Opportunity,no,no,yes,cg-core,status.description,,,,
+Opportunity,no,no,yes,cg-core,funding.details,,,,
+Opportunity,yes,yes,yes,cg-core,funding.totalAmountAvailable,summary.estimated_total_program_funding,1.09.05,Funding Opportunity Anticipated Amount,renumbered
+Opportunity,no,yes,yes,cg-core,funding.minAwardAmount,summary.award_floor,,,
+Opportunity,no,yes,yes,cg-core,funding.maxAwardAmount,summary.award_ceiling,,,
+Opportunity,no,no,yes,cg-core,funding.minAwardCount,,,,
+Opportunity,no,no,yes,cg-core,funding.maxAwardCount,,,,
+Opportunity,yes,yes,yes,cg-core,funding.estimatedAwardCount,summary.expected_number_of_awards,1.13.05,Anticipated Number of Awards,relocated (now project-level)
+Opportunity,yes,yes,yes,cg-core,keyDates.postDate.date,summary.post_date,1.11.05,Anticipated Application Period Start Date,unchanged
+Opportunity,yes,yes,yes,cg-core,keyDates.postDate.date,summary.forecasted_post_date,1.11.05,Anticipated Application Period Start Date,unchanged
+Opportunity,no,yes,yes,cg-core,keyDates.closeDate.description,summary.close_date_description,,,
+Opportunity,no,yes,yes,cg-core,keyDates.closeDate.description,summary.forecasted_close_date_description,,,
+Opportunity,yes,yes,yes,cg-core,keyDates.closeDate.date,summary.close_date,1.11.06,Anticipated Application Period End Date,unchanged
+Opportunity,yes,yes,yes,cg-core,keyDates.closeDate.date,summary.forecasted_close_date,1.11.06,Anticipated Application Period End Date,unchanged
+Opportunity,no,yes,yes,cg-core,keyDates.otherDates.archiveDate.date,summary.archive_date,,,
+Opportunity,yes,yes,yes,cg-core,keyDates.otherDates.forecastedAwardDate.date,summary.forecasted_award_date,1.11.11,Anticipated Award Date,renumbered
+Opportunity,yes,yes,yes,cg-core,keyDates.otherDates.forecastedProjectStartDate.date,summary.forecasted_project_start_date,1.11.12,Anticipated Project Start Date,renumbered
+Opportunity,yes,yes,yes,cg-core,acceptedApplicantTypes[].value,summary.applicant_types[],2.01.01,Eligible Applicant Type,renamed
+Opportunity,no,no,yes,cg-core,acceptedApplicantTypes[].customValue,,,,
+Opportunity,yes,no,yes,cg-core,acceptedApplicantTypes[].description,,2.02.01,Eligible Applicant Additional Information,renamed
+Opportunity,no,no,yes,cg-core,source,,,,
+Opportunity,no,yes,yes,cg-core,createdAt,created_at,,,
+Opportunity,no,yes,yes,cg-core,lastModifiedAt,updated_at,,,
+Opportunity,no,yes,yes,cg-custom,additionalInfo.value.url,summary.additional_info_url,,,
+Opportunity,no,yes,yes,cg-custom,additionalInfo.value.description,summary.additional_info_url_description,,,
+Opportunity,yes,yes,yes,cg-custom,agency.value.code,agency_code,1.01.01,Awarding Agency,renamed
+Opportunity,no,yes,yes,cg-custom,agency.value.name,agency_name,,,
+Opportunity,no,yes,yes,cg-custom,agency.value.parentCode,top_level_agency_code,,,
+Opportunity,no,yes,yes,cg-custom,agency.value.parentName,top_level_agency_name,,,
+Opportunity,yes,yes,yes,cg-custom,assistanceListings.value[].identifier,opportunity_assistance_listings[].assistance_listing_number,1.02.01,Related Assistance Listing(s),renamed
+Opportunity,yes,yes,yes,cg-custom,assistanceListings.value[].programTitle,opportunity_assistance_listings[].program_title,1.02.01,Related Assistance Listing(s),merged into 1.02.01
+Opportunity,no,yes,yes,cg-custom,attachments.value[].downloadUrl,attachments[].download_path,,,
+Opportunity,no,yes,yes,cg-custom,attachments.value[].name,attachments[].file_name,,,
+Opportunity,no,yes,yes,cg-custom,attachments.value[].description,attachments[].file_description,,,
+Opportunity,no,yes,yes,cg-custom,attachments.value[].sizeInBytes,attachments[].file_size_bytes,,,
+Opportunity,no,yes,yes,cg-custom,attachments.value[].mimeType,attachments[].mime_type,,,
+Opportunity,no,yes,yes,cg-custom,attachments.value[].createdAt,attachments[].created_at,,,
+Opportunity,no,yes,yes,cg-custom,attachments.value[].lastModifiedAt,attachments[].updated_at,,,
+Opportunity,yes,no,yes,cg-custom,contactInfo.value.name,,6.06.02,POC Title/Office/Center,renamed
+Opportunity,yes,yes,yes,cg-custom,contactInfo.value.email,summary.agency_email_address,6.06.03,POC Email Address,unchanged
+Opportunity,yes,no,yes,cg-custom,contactInfo.value.phone,,6.06.04,POC Domestic Phone Number,unchanged
+Opportunity,yes,yes,yes,cg-custom,contactInfo.value.description,summary.agency_contact_description,6.06.01,POC Role Type,unchanged
+Opportunity,yes,yes,yes,cg-custom,costSharing.value.isRequired,summary.is_cost_sharing,2.07.03,Cost Sharing Requirement Type,renumbered
+Opportunity,yes,no,yes,cg-custom,costSharing.value.percentage,,2.07.04,Cost Sharing Requirement Percentage,renumbered
+Opportunity,yes,no,yes,cg-custom,costSharing.value.details,,2.07.06,Cost Sharing Requirement Description,renumbered
+Opportunity,yes,no,yes,cg-custom,eligibilityCriteria.value.beneficiaryTypes[].code,,2.03.01,Eligible Beneficiary Type,unchanged
+Opportunity,no,no,yes,cg-custom,eligibilityCriteria.value.beneficiaryTypes[].name,,,,
+Opportunity,yes,yes,yes,cg-custom,eligibilityCriteria.value.details,summary.applicant_eligibility_description,2.06.04,Other Eligibility Requirements,unchanged
+Opportunity,yes,yes,yes,cg-custom,federalFundingInstruments.value[].type,summary.funding_instruments[],1.09.01,Funding Opportunity Assistance Type,unchanged
+Opportunity,no,no,yes,cg-custom,federalFundingInstruments.value[].customValue,,,,
+Opportunity,no,yes,yes,cg-custom,federalFundingSources.value.type,summary.funding_categories[],,,
+Opportunity,no,no,yes,cg-custom,federalFundingSources.value.customValue,,,,
+Opportunity,yes,yes,yes,cg-custom,federalOpportunityNumber.value,opportunity_number,1.01.04,Funding Opportunity Number,unchanged
+Opportunity,no,yes,yes,cg-custom,legacySerialId.value,legacy_opportunity_id,,,
+Opportunity,no,yes,no,sgg-only,,agency,,,
+Opportunity,no,yes,no,sgg-only,,category,,,removed (no current IC)
+Opportunity,no,yes,no,sgg-only,,category_explanation,,,
+Opportunity,no,yes,no,sgg-only,,summary.agency_email_address_description,,,
+Opportunity,no,yes,no,sgg-only,,summary.created_at,,,
+Opportunity,yes,yes,no,sgg-only,,summary.fiscal_year,"1.09.04, 1.14.02",Funding Opportunity Fiscal Year,renumbered
+Opportunity,no,yes,no,sgg-only,,summary.funding_category_description,,,
+Opportunity,no,yes,no,sgg-only,,summary.is_forecast,,,
+Opportunity,no,yes,no,sgg-only,,summary.updated_at,,,
+Opportunity,yes,yes,no,sgg-only,,summary.version_number,1.01.06,Funding Opportunity Version,unchanged
+Opportunity,yes,no,no,ic-only,,,1.01.02,Awarding Agency Sub-Tier,renamed
+Opportunity,yes,no,no,ic-only,,,1.01.03,Awarding Agency Primary Office,renamed
+Opportunity,yes,no,no,ic-only,,,1.01.07,Previous Funding Opportunity Number,unchanged
+Opportunity,yes,no,no,ic-only,,,1.01.09,Funding Opportunity Publication Date,renamed
+Opportunity,yes,no,no,ic-only,,,1.03.01,Related Funding Opportunity Number(s),renamed
+Opportunity,yes,no,no,ic-only,,,1.03.01,Related Funding Opportunity Number(s),renumbered
+Opportunity,yes,no,no,ic-only,,,1.05.01,Authorization Type,renamed
+Opportunity,yes,no,no,ic-only,,,1.04.02,Funding Opportunity Goal Description,renumbered
+Opportunity,yes,no,no,ic-only,,,1.05.03,Authorization Subtitle,renamed
+Opportunity,yes,no,no,ic-only,,,1.04.04,Funding Opportunity Objective Description,renumbered
+Opportunity,yes,no,no,ic-only,,,1.05.05,Authorization Description,renamed
+Opportunity,yes,no,no,ic-only,,,1.04.06,Funding Opportunity Performance Measure Description,renumbered
+Opportunity,yes,no,no,ic-only,,,1.04.07,Funding Opportunity Performance Measure Value - Prior Fiscal Year,renumbered
+Opportunity,yes,no,no,ic-only,,,1.04.08,Funding Opportunity Performance Measure Target Value,renumbered
+Opportunity,yes,no,no,ic-only,,,1.06.01,Funding Opportunity Executive Order Title,renamed
+Opportunity,yes,no,no,ic-only,,,1.06.02,Funding Opportunity Executive Order Part,renamed
+Opportunity,yes,no,no,ic-only,,,1.06.03,Funding Opportunity Executive Order Section,renamed
+Opportunity,yes,no,no,ic-only,,,1.06.04,Funding Opportunity Executive Order Description,renamed
+Opportunity,yes,no,no,ic-only,,,1.06.01,Funding Opportunity Executive Order Title,renumbered
+Opportunity,yes,no,no,ic-only,,,1.06.02,Funding Opportunity Executive Order Part,renumbered
+Opportunity,yes,no,no,ic-only,,,1.06.03,Funding Opportunity Executive Order Section,renumbered
+Opportunity,yes,no,no,ic-only,,,1.06.04,Funding Opportunity Executive Order Description,renumbered
+Opportunity,yes,no,no,ic-only,,,1.07.01,Funding Opportunity Involvement Description,unchanged
+Opportunity,yes,no,no,ic-only,,,1.07.02,Funding Opportunity General Policy Description,unchanged
+Opportunity,yes,no,no,ic-only,,,1.07.03,Funding Opportunity Program-Specific Policy Description,unchanged
+Opportunity,yes,no,no,ic-only,,,1.07.04,Funding Opportunity Program-Specific Policy URL,unchanged
+Opportunity,yes,no,no,ic-only,,,1.07.05,Funding Opportunity Indirect Cost Rate Policy Description,unchanged
+Opportunity,yes,no,no,ic-only,,,1.08.01,Financially Contributing Program,renamed
+Opportunity,yes,no,no,ic-only,,,1.08.02,Anticipated Program Contribution to Funding Opportunity Amount,renamed
+Opportunity,yes,no,no,ic-only,,,1.09.02,Funding Opportunity Basis for Award Amount Selection,unchanged
+Opportunity,yes,no,no,ic-only,,,1.09.03,Funding Opportunity Basis for Recipient Selection,unchanged
+Opportunity,yes,no,no,ic-only,,,1.09.04,Funding Opportunity Fiscal Year,renamed
+Opportunity,yes,no,no,ic-only,,,1.10.01,Project Name,unchanged
+Opportunity,yes,no,no,ic-only,,,1.10.02,Project Identifier,unchanged
+Opportunity,yes,no,no,ic-only,,,1.10.03,Project Description,unchanged
+Opportunity,yes,no,no,ic-only,,,1.10.04,Project Type,unchanged
+Opportunity,yes,no,no,ic-only,,,1.10.05,Project Focus Areas,unchanged
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.informationalWebinarDate,,1.11.01,Anticipated Informational Webinar Date,mappable via keyDates.otherDates
+Opportunity,yes,no,no,ic-only,,,1.11.02,Informational Webinar Registration URL,unchanged
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.applicationMaterialsReleaseDate,,1.11.03,Anticipated Application Materials Release Date,mappable via keyDates.otherDates
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.conceptNoteDeadline,,1.11.04,Anticipated Concept Note Deadline,mappable via keyDates.otherDates
+Opportunity,yes,no,no,ic-only,,,1.11.08,Anticipated Application Period End Date - Time,renumbered
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.applicationReviewStartDate,,1.11.09,Anticipated Application Review Start Date,mappable via keyDates.otherDates
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.applicationReviewEndDate,,1.11.10,Anticipated Application Review End Date,mappable via keyDates.otherDates
+Opportunity,yes,no,no,ic-only,,,1.11.12,Anticipated Project Start Date,renamed
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.noticeOfIntentDueDate,,1.11.14,Anticipated Notice of Intent Due Date,mappable via keyDates.otherDates
+Opportunity,yes,no,no,ic-only,,,1.11.15,Anticipated Notice of Intent Due Date - Time,renumbered
+Opportunity,yes,no,no,ic-only,,,1.12.01,Project Goal Title,renamed
+Opportunity,yes,no,no,ic-only,,,1.12.02,Project Goal Description,unchanged
+Opportunity,yes,no,no,ic-only,,,1.12.03,Project Objective Title,renamed
+Opportunity,yes,no,no,ic-only,,,1.12.04,Project Objective Description,unchanged
+Opportunity,yes,no,no,ic-only,,,1.12.05,Project Performance Measure Title,renamed
+Opportunity,yes,no,no,ic-only,,,1.12.06,Project Performance Measure Description,unchanged
+Opportunity,yes,no,no,ic-only,,,1.12.07,Project Performance Measure Value - Prior Fiscal Year,unchanged
+Opportunity,yes,no,no,ic-only,,,1.12.08,Project Performance Measure Target Value,unchanged
+Opportunity,yes,no,no,ic-only,,,1.13.01,Project Assistance Type,unchanged
+Opportunity,yes,no,no,ic-only,,,1.13.02,Project Basis of Award Amount Selection,unchanged
+Opportunity,yes,no,no,ic-only,,,1.13.03,Project Basis for Recipient Selection,unchanged
+Opportunity,yes,no,no,ic-only,,,1.13.04,Anticipated Number of Award Applications,unchanged
+Opportunity,yes,no,no,ic-only,,,1.13.05,Anticipated Number of Awards,unchanged
+Opportunity,yes,no,no,ic-only,,,1.14.01,Project Funding-Related Assistance Listing,unchanged
+Opportunity,yes,no,no,ic-only,,,1.14.02,Funding Opportunity Fiscal Year,unchanged
+Opportunity,yes,no,no,ic-only,,,1.14.03,Program Activity Reporting Key (PARK),unchanged
+Opportunity,yes,no,no,ic-only,,,1.14.04,Treasury Account Symbol (TAS),unchanged
+Opportunity,yes,no,no,ic-only,,,1.14.05,PARK/TAS Funding Amount,unchanged
+Opportunity,yes,no,no,ic-only,,,2.01.02,Eligible Applicant Attributes,renamed
+Opportunity,yes,no,no,ic-only,,,2.03.02,Eligible Beneficiary Attributes,renamed
+Opportunity,yes,no,no,ic-only,,,2.04.01,Eligible Beneficiary Additional Information,unchanged
+Opportunity,yes,no,no,ic-only,,,2.05.01,Geographic Eligibility Applicable,renamed
+Opportunity,yes,no,no,ic-only,,,2.05.02,Geographic Eligibility Type,renamed
+Opportunity,yes,no,no,ic-only,,,2.05.03,Geographic Eligibility Areas,renamed
+Opportunity,yes,no,no,ic-only,,,2.05.04,Geographic Eligibility Description,renamed
+Opportunity,yes,no,no,ic-only,,,2.06.01,Principal Investigator (PI) or Project Director (PD) Eligibility Requirements,unchanged
+Opportunity,yes,no,no,ic-only,,,2.06.02,Application Responsiveness Criteria,unchanged
+Opportunity,yes,no,no,ic-only,,,2.06.03,Application Submission Limit Description,unchanged
+Opportunity,yes,no,no,ic-only,,,2.07.03,Cost Sharing Requirement Type,renamed
+Opportunity,yes,no,no,ic-only,,,2.07.07,Cost Sharing Requirement Waiver Description,renumbered
+Opportunity,yes,no,no,ic-only,,,2.07.08,Maintenance of Effort (MOE) Description,renumbered
+Opportunity,yes,no,no,ic-only,,,2.08.01,Use of Assistance,unchanged
+Opportunity,yes,no,no,ic-only,,,2.08.02,Use of Assistance Description,unchanged
+Opportunity,yes,no,no,ic-only,,,2.08.03,Use Restrictions,unchanged
+Opportunity,yes,no,no,ic-only,,,2.08.04,Use Restrictions Description,unchanged
+Opportunity,yes,no,no,ic-only,,,3.01.01,Application Component Type,unchanged
+Opportunity,yes,no,no,ic-only,,,3.01.02,Application Component Instructions,unchanged
+Opportunity,yes,no,no,ic-only,,,3.02.01,Application Component Format Type,unchanged
+Opportunity,yes,no,no,ic-only,,,3.02.02,Application Component Format Description,unchanged
+Opportunity,yes,no,no,ic-only,,,3.02.03,Application Component Additional Format Instructions,unchanged
+Opportunity,yes,no,no,ic-only,,,4.01.01,Application Deadline Additional Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,4.01.02,Application Submission Method,renumbered
+Opportunity,yes,no,no,ic-only,,,4.01.03,Application Submission Email,renumbered
+Opportunity,yes,no,no,ic-only,,,4.01.04,Application Submission URL,renumbered
+Opportunity,yes,no,no,ic-only,,,4.01.05,Application Submission Additional Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.01,Notice of Intent Requirement,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.02,Notice of Intent Submission Method,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.03,Notice of Intent Submission Email,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.04,Notice of Intent Submission URL,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.05,Notice of Intent Submission Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.06,Intergovernmental Review Requirement,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.07,Intergovernmental Review Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.08,Paper Submissions Acceptance,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.09,Paper Submissions Exemption Requirement,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.10,Paper Submission Exemption Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,4.02.11,Paper Submission Application Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,5.01.01,Application Selection Process,unchanged
+Opportunity,yes,no,no,ic-only,,,5.02.01,Application Review Type,unchanged
+Opportunity,yes,no,no,ic-only,,,5.02.02,Application Review Description,unchanged
+Opportunity,yes,no,no,ic-only,,,5.03.01,Application Criterion Name,unchanged
+Opportunity,yes,no,no,ic-only,,,5.03.02,Application Criterion Description,unchanged
+Opportunity,yes,no,no,ic-only,,,5.03.03,Application Criterion Max Points,unchanged
+Opportunity,yes,no,no,ic-only,,,5.03.04,Application Criterion Percentage,unchanged
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.awardNotificationStartDate,,5.04.01,Expected Award Notification Start Date,mappable via keyDates.otherDates
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.awardNotificationEndDate,,5.04.02,Expected Award Notification End Date,mappable via keyDates.otherDates
+Opportunity,yes,no,no,ic-only,,,5.04.04,Award Notification Method,renumbered
+Opportunity,yes,no,no,ic-only,,,5.04.04,Award Notification Method,renamed
+Opportunity,yes,no,no,ic-only,,,5.04.06,Successful Applicant Award Notification Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,5.04.07,Unsuccessful Applicant Award Notification Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,6.01.01,Award Terms and Conditions Type,unchanged
+Opportunity,yes,no,no,ic-only,,,6.01.02,Award Terms and Conditions Short Title,unchanged
+Opportunity,yes,no,no,ic-only,,,6.01.03,Award Terms and Conditions Description,unchanged
+Opportunity,yes,no,no,ic-only,,,6.02.01,Grant Policy Requirement Title,renamed
+Opportunity,yes,no,no,ic-only,,,6.02.02,Grant Policy Description,unchanged
+Opportunity,yes,no,no,ic-only,,,6.02.03,Grant Policy URL,unchanged
+Opportunity,yes,no,no,ic-only,,,6.03.01,Payment Type,unchanged
+Opportunity,yes,no,no,ic-only,,,6.03.02,Payment Frequency,unchanged
+Opportunity,yes,no,no,ic-only,,,6.03.03,Payment Frequency Description,unchanged
+Opportunity,yes,no,no,ic-only,,,6.04.01,Financial Report Frequency,unchanged
+Opportunity,yes,no,no,ic-only,,,6.04.02,Financial Report Description,unchanged
+Opportunity,yes,no,no,ic-only,,,6.04.03,Financial Report Submission Method,unchanged
+Opportunity,yes,no,no,ic-only,,,6.04.04,Financial Report Submission Instructions,renamed
+Opportunity,yes,no,no,ic-only,,,6.04.04,Financial Report Submission Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,6.04.05,Progress/Performance Report Frequency,renumbered
+Opportunity,yes,no,no,ic-only,,,6.04.06,Progress/Performance Report Description,renumbered
+Opportunity,yes,no,no,ic-only,,,6.04.07,Progress/Performance Report Submission Method,renumbered
+Opportunity,yes,no,no,ic-only,,,6.04.09,Closeout Report Description,renamed
+Opportunity,yes,no,no,ic-only,,,6.04.08,Progress/Performance Report Submission Instructions,renumbered
+Opportunity,yes,no,no,ic-only,,,6.05.01,Other Report Frequency,unchanged
+Opportunity,yes,no,no,ic-only,,,6.05.02,Other Report Name,unchanged
+Opportunity,yes,no,no,ic-only,,,6.05.03,Other Report Description,unchanged
+Opportunity,yes,no,no,ic-only,,,6.05.04,Other Report Submission Method,unchanged
+Opportunity,yes,no,no,ic-only,,,6.05.05,Other Report Submission Instructions,renamed
+Opportunity,yes,no,no,ic-only,,,6.05.05,Other Report Submission Instructions,renumbered
+Opportunity,yes,no,yes,cg-core,keyDates.otherDates.periodOfPerformance,,1.11.13,Anticipated Period of Performance,mappable via keyDates.otherDates
